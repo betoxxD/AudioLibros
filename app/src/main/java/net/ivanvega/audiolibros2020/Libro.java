@@ -2,6 +2,7 @@ package net.ivanvega.audiolibros2020;
 
 import java.util.Vector;
 
+// Objeto libro
 public class Libro {
     public String titulo;
     public String autor;

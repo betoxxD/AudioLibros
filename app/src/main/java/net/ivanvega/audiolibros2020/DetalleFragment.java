@@ -15,6 +15,7 @@ import android.widget.TextView;
  * Use the {@link DetalleFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+// Es un Fragmento donde se muestran los detalles del libro seleccionado
 public class DetalleFragment extends Fragment {
     public static String ARG_ID_LIBRO = "id_libro";
 
@@ -49,6 +50,7 @@ public class DetalleFragment extends Fragment {
         return fragment;
     }
 
+    // Vincular con los parametros de fragmento
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,39 +60,39 @@ public class DetalleFragment extends Fragment {
         }
     }
 
+    // Se crea cada que se crea el View
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
        View vista = inflater.inflate(R.layout.fragment_detalle, container, false);
-
+        // Bundle permite el intercambio de Objetos con la aplicacion
         Bundle args = getArguments();
 
+        // Validar si hay un elemento seleccionado
         if (args != null) {
+            // Si existe un elemento seleccionado, pone ese libro
             int position = args.getInt(ARG_ID_LIBRO);
             ponInfoLibro(position, vista);
         } else {
+            // Pone el libro con id 0
             ponInfoLibro(0, vista);
         }
 
 
-
         return vista;
     }
-
+    // Metodo que obtiene el view del fragment actual y llama a su metodo sobrecargado indicandole el indice que se le agrega
     public void ponInfoLibro(int id) {
         ponInfoLibro(id, getView());
     }
 
+    // metodo privado que obtiene la vista actual con el metodo sobrecargado publico y el id, los coloca en el fragment actual
     private void ponInfoLibro(int id, View vista) {
-        Libro libro =
-                Libro.ejemploLibros().elementAt(id);
+        // Se busca el id del libro en el vector libros y se guarda este libro
+        Libro libro = Libro.ejemploLibros().elementAt(id);
+        // A la vista actual se le asignan a los textview y al imageview los valores que el libro tiene
         ((TextView) vista.findViewById(R.id.titulo)).setText(libro.titulo);
         ((TextView) vista.findViewById(R.id.autor)).setText(libro.autor);
         ((ImageView) vista.findViewById(R.id.portada)).setImageResource(libro.recursoImagen);
-
-
     }
-
 }

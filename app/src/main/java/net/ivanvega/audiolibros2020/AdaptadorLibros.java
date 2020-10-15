@@ -11,13 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Vector;
-
+// Adaptador personalizado para poder funcionar con la estructura del proyecto
 public class AdaptadorLibros extends  RecyclerView.Adapter<AdaptadorLibros.ViewHolder> {
 
     private  Vector<Libro> vectorLibros;
     private  Context contexto;
     private  LayoutInflater inflador;
 
+    //Desde aqui
+    // Se obtienen las acciones de clic y clic largo para asignarlas al Al view que se infla
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
         this.onLongClickListener = onLongClickListener;
     }
@@ -28,23 +30,24 @@ public class AdaptadorLibros extends  RecyclerView.Adapter<AdaptadorLibros.ViewH
 
     private View.OnLongClickListener onLongClickListener;
     private View.OnClickListener onclickListener;
+    // Hasta aqui
 
-
-    public AdaptadorLibros(Context contexto,
-                           Vector<Libro> vectorLibros) {
-        inflador = (LayoutInflater) contexto.getSystemService
-                (Context.LAYOUT_INFLATER_SERVICE);
-
+    // Constructor para SelectorFragment
+    public AdaptadorLibros(Context contexto, Vector<Libro> vectorLibros) {
+        //Se infla el contexto que se recibe en el constructor
+        inflador = (LayoutInflater) contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.vectorLibros = vectorLibros;
         this.contexto = contexto;
     }
 
+    // Se llama cuando un RecyclerWiew necesita un ViewHolder del tipo representado como un item.
+    // Se debe de construir con un View que representara los items contenidos en el RecyclerView
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+        // Inflar el xml elemento selector, que contiene la estructura de la imagen y el titulo
         View v = inflador.inflate(R.layout.elemento_selector, null);
-
+        // Asigna las propiedades on CLick y onClickListener
         v.setOnClickListener(this.onclickListener);
         v.setOnLongClickListener(this.onLongClickListener);
 
@@ -52,6 +55,8 @@ public class AdaptadorLibros extends  RecyclerView.Adapter<AdaptadorLibros.ViewH
 
     }
 
+    // Se crea por cada elemento que se tenga
+    // Asigna la portada y el titulo para cada conjunto de elementos
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Libro libro = vectorLibros.get(position);
@@ -60,6 +65,7 @@ public class AdaptadorLibros extends  RecyclerView.Adapter<AdaptadorLibros.ViewH
         holder.titulo.setText(libro.titulo);
     }
 
+    // Retorna el tamaño de los items que se tienen
     @Override
     public int getItemCount() {
         return vectorLibros.size();
