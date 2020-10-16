@@ -18,7 +18,6 @@ public class AdaptadorLibros extends  RecyclerView.Adapter<AdaptadorLibros.ViewH
     private  Context contexto;
     private  LayoutInflater inflador;
 
-    //Desde aqui
     // Se obtienen las acciones de clic y clic largo para asignarlas al Al view que se infla
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
         this.onLongClickListener = onLongClickListener;
@@ -30,7 +29,6 @@ public class AdaptadorLibros extends  RecyclerView.Adapter<AdaptadorLibros.ViewH
 
     private View.OnLongClickListener onLongClickListener;
     private View.OnClickListener onclickListener;
-    // Hasta aqui
 
     // Constructor para SelectorFragment
     public AdaptadorLibros(Context contexto, Vector<Libro> vectorLibros) {

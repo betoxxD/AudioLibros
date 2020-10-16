@@ -20,12 +20,23 @@
     <TextView
         android:id="@+id/autor"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"         android:layout_alignParentLeft="true"         android:layout_alignParentRight="true"         android:layout_below="@+id/titulo"         android:gravity="center"         android:text="Autor"         android:textAlignment="center"         android:textColor="@android:color/darker_gray"         android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/titulo"
+        android:gravity="center"
+        android:text="Autor"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ImageView
         android:id="@+id/portada"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"         android:layout_below="@id/autor"         android:layout_centerHorizontal="true"         android:src="@mipmap/ic_launcher" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/autor"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher" />
 
 
 

@@ -14,7 +14,8 @@
         android:name="net.ivanvega.audiolibros2020.DetalleFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"></fragment>
+        android:layout_weight="1"
+        />
 
 
 </LinearLayout>
